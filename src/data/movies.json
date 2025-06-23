@@ -65,5 +65,72 @@
       "url": "sarung_untuk_bapak",
       "is_premium": false
     }
+  ],
+  "editors": [
+    {
+      "id": 1,
+      "url": "inshallah_a_boy",
+      "is_premium": false
+    },
+    {
+      "id": 2,
+      "url": "hot_milk",
+      "is_premium": true
+    },
+    {
+      "id": 3,
+      "url": "daddio_rev",
+      "is_premium": false
+    },
+    {
+      "id": 4,
+      "url": "four_daughter_rev",
+      "is_premium": false
+    },
+    {
+      "id": 5,
+      "url": "theres_still_tomorrow",
+      "is_premium": true
+    },
+    {
+      "id": 6,
+      "url": "marcello_mio_rev",
+      "is_premium": true
+    },
+    {
+      "id": 7,
+      "url": "silent_roar",
+      "is_premium": false
+    },
+    {
+      "id": 8,
+      "url": "may_december",
+      "is_premium": false
+    },
+    {
+      "id": 9,
+      "url": "crossing",
+      "is_premium": true
+    },
+    {
+      "id": 10,
+      "url": "nocebo",
+      "is_premium": false
+    },
+    {
+      "id": 11,
+      "url": "la_cocina_rev",
+      "is_premium": true
+    },
+    {
+      "id": 12,
+      "url": "how_to_make_millions_oscar_rev",
+      "is_premium": false
+    },
+    {
+      "id": 13,
+      "url": "twpitw",
+      "is_premium": false
+    }
   ]
 }

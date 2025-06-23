@@ -1,103 +1,219 @@
-import Image from "next/image";
+'use client'
+
+import {Swiper, SwiperSlide} from 'swiper/react';
+import {Autoplay, Pagination} from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import PremierCard from "@/app/_components/premier/card";
+import EditorCard from "@/app/_components/editor/card";
+
+import data from '../data/movies.json';
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    return (
+        <div className="navbarSpace">
+            <div id="navbar">
+                <div>
+                    <div className="nContent">
+                        <div>
+                            <a href="https://klikfilm.com/v4"
+                               className="aMenuHome">
+                                <div
+                                    className="nLogo bg-cover bg-center bg-[url('https://klikfilm.com/v4/images/logo_klikfilm_black_nonhd.png')] dark:bg-[url('https://klikfilm.com/v4/images/logo_klikfilm.png')]">
+                                </div>
+                            </a>
+                        </div>
+                        <div>
+                            <div className="nMenu">
+                                <a href="https://klikfilm.com/v4"
+                                   className="aMenuHome active">
+                                    <div>Home</div>
+                                </a>
+                                <a href="https://klikfilm.com/v4/trending" className="">
+                                    <div>Trending</div>
+                                </a>
+                            </div>
+                        </div>
+                        <div id="idSearch">
+                            <div className="nSearch">
+                                <form method="get" action="https://klikfilm.com/v4/search">
+                                    <input id="value_search" name="keyword" placeholder="Cari film" autoComplete="off"
+                                           className="dark:placeholder:text-gray-400 placeholder:text-black"/>
+                                </form>
+                            </div>
+                        </div>
+                        <div>
+                            <div className="nBtn pointer">Masuk/Daftar</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+            <div id="content">
+                <div className="w-full">
+                    <Swiper
+                        spaceBetween={16}
+                        slidesPerView={1}
+                        modules={[Autoplay, Pagination]}
+                        autoplay={{
+                            delay: 1500,
+                            disableOnInteraction: false,
+                            reverseDirection: false,
+                            pauseOnMouseEnter: false
+                        }}
+                        pagination={{
+                            el: '.swiper-pagination',
+                            clickable: true,
+                        }}
+                        loop={true}
+                    >
+                        {data.premiers.map((src) => (
+                            <SwiperSlide key={src.id}>
+                                <img className="w-full cover" src={`https://posters.cdn.klikfilm.net/1349_405/${src.url}_1349_405.jpg`} alt={""}/>
+                            </SwiperSlide>
+                        ))}
+                        <div className="swiper-pagination"></div>
+                    </Swiper>
+                </div>
+                <div id="page_explore" className="exp_page">
+                    <div className="filmSection">
+                        <div className="sectionBox stbsec33 hidden" style={{display: 'block'}}>
+                            {/*Premiere*/}
+                            <div>
+                                <div className="title mt15">
+                                    <div>
+                                        <div>Premiere</div>
+                                    </div>
+                                    <div><a href="https://klikfilm.com/v4/section/33">
+                                        <div className="headMore">
+                                            <div>Lihat Semua</div>
+                                            <div>
+                                                <div>
+                                                    <div className="icon icon_arrow_right_black"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a></div>
+                                </div>
+                                <div className="card_hzl_film overflow-hidden whitespace-nowrap">
+                                    <div className="flex gap-6">
+                                        {data.premiers.map((src) => (
+                                            <PremierCard key={src.id} src={src.url}/>
+                                        ))}
+                                    </div>
+                                    <div
+                                        className="scroll_card">
+                                        <div>
+                                            <div className="chn_btn_left">
+                                                <div
+                                                    className="icon icon_arrow_slide_left"></div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div className="chn_btn_right">
+                                                <div
+                                                    className="icon icon_arrow_slide_right"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {/*Editor Pick*/}
+                            <div>
+                                <div className="title mt15">
+                                    <div>
+                                        <div>Editor&#39;s Picks</div>
+                                    </div>
+                                    <div><a href="https://klikfilm.com/v4/section/33">
+                                        <div className="headMore">
+                                            <div>Lihat Semua</div>
+                                            <div>
+                                                <div>
+                                                    <div className="icon icon_arrow_right_black"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a></div>
+                                </div>
+                                <div className="card_hzl_film">
+                                    <div className="cnt_card bh_scroll">
+                                        {data.editors.map((src) => (
+                                            <EditorCard key={src.id} src={src.url} isPremium={src.is_premium}/>
+                                        ))}
+                                    </div>
+                                    <div
+                                        className="scroll_card">
+                                        <div>
+                                            <div className="chn_btn_left">
+                                                <div
+                                                    className="icon icon_arrow_slide_left"></div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div className="chn_btn_right">
+                                                <div
+                                                    className="icon icon_arrow_slide_right"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        className="filmSection">
+                        <div className="sectionBox stbsec176 hidden" style={{display: 'block'}}>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="page_loading" className="page_loading" style={{display: 'none'}}>
+                <div>Loading...</div>
+            </div>
+
+            <div id="footer">
+
+                <section>
+                    <div className="distance">
+
+                        <div className="fBody">
+                            <div>
+                                <div className="fbOption">
+                                    <a href="https://klikfilm.com/v4/about/contact-us" className="awhite">Contact us</a>
+                                    <a href="https://klikfilm.com/v4/about/term-of-use" className="awhite">Term of
+                                        Use</a>
+                                    <a href="https://klikfilm.com/v4/about/faq" className="awhite">FAQ</a>
+                                    <a href="https://klikfilm.com/v4/about/point" className="awhite">Point</a>
+                                </div>
+                                <div className="fbContent">
+                                    <div>©2025, KlikFilm.com atau afiliasinya. All rights reserved.</div>
+                                </div>
+                                <div className="fbEngine">
+                                    <div>Build Number: 169.8 · ID</div>
+                                </div>
+                            </div>
+                            <div>
+                                <div className="fbDownload">
+                                    <div>Unduh sekarang</div>
+                                    <div>
+                                        <a href="https://play.google.com/store/apps/details?id=net.klikfilm.app&amp;hl=in&amp;gl=US"
+                                           target="_blank">
+                                            <div className="download_playstore"></div>
+                                        </a>
+                                        <a href="https://apps.apple.com/id/app/klikfilm/id1057143732?l=id"
+                                           target="_blank">
+                                            <div className="download_appstore"></div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+            </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+    );
 }
