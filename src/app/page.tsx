@@ -36,7 +36,7 @@ export default function Home() {
                             </div>
                         </div>
                         <div id="idSearch">
-                            <div className="nSearch">
+                            <div className="nSearch hidden md:block">
                                 <form method="get" action="https://klikfilm.com/v4/search">
                                     <input id="value_search" name="keyword" placeholder="Cari film" autoComplete="off"
                                            className="dark:placeholder:text-gray-400 placeholder:text-black"/>
@@ -53,6 +53,7 @@ export default function Home() {
             <div id="content">
                 <div className="w-full">
                     <Swiper
+                        className="h-[300] md:h-full"
                         spaceBetween={16}
                         slidesPerView={1}
                         modules={[Autoplay, Pagination]}
@@ -70,7 +71,7 @@ export default function Home() {
                     >
                         {data.premiers.map((src) => (
                             <SwiperSlide key={src.id}>
-                                <img className="w-full cover" src={`https://posters.cdn.klikfilm.net/1349_405/${src.url}_1349_405.jpg`} alt={""}/>
+                                <img className="w-full h-full object-cover" src={`https://posters.cdn.klikfilm.net/1349_405/${src.url}_1349_405.jpg`} alt={""}/>
                             </SwiperSlide>
                         ))}
                         <div className="swiper-pagination"></div>

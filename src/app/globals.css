@@ -389,7 +389,7 @@ input, textarea, select {
 }
 
 *{margin: 0px auto; padding: 0px;}
-body{font-family: 'regular', verdana; font-size: 14px; color: var(--text_white); min-width: 950px; position: relative;}
+body{font-family: 'regular', verdana; font-size: 14px; color: var(--text_white); position: relative;}
 a{color: var(--text_red); text-decoration: none;}
 a.awhite{color: var(--text_white); transition: all 0.2s ease;}
 a.awhite:hover{color: var(--text_red);}
@@ -548,7 +548,7 @@ textarea.autogrow{overflow: hidden;}
 .brr5{border-radius: 0px 5px 5px 0px;}
 .ofh{overflow: hidden;}
 .slow{-webkit-transition:all 0.2s ease; -moz-transition:all 0.2s ease; -o-transition:all 0.2s ease;}
-.hidden{display: none;}
+/*.hidden{display: none;}*/
 .opacity{opacity: 0;}
 .clear{clear: both;}
 
@@ -818,7 +818,7 @@ textarea.autogrow{overflow: hidden;}
 #headerBack .hLogo > div{padding: 19%;}
 
 #footer{height: 100px; margin-top: 40px; padding-bottom: 25px; position: relative; z-index: 1;}
-#footer .fBody{display: grid; grid-template-columns: 490px 1fr; grid-gap: 15px;}
+#footer .fBody{display: grid; grid-gap: 15px;}
 #footer .fBody > div{width: 100%;}
 #footer .fBody .fbOption{white-space: nowrap; margin-top: 25px;}
 #footer .fBody .fbOption > a{display: inline-block;}
